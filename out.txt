@@ -1,0 +1,11 @@
+--- Query: 'procter & gamble germany' ---
+No quotes found.
+
+--- Query: 'Procter & Gamble' ---
+Found: PG (Procter & Gamble Company (The) - NYQ)
+Found: PRG.DE (PROCTER & GAMBLE CO., THE     R - GER)
+Found: PGHL.NS (PROCTER & GAMBLE HEALTH L - NSI)
+Found: PGD.BA (PROCTER & GAMBLE CO CEDEAR 15 R - BUE)
+Found: PGHH.NS (P&G HYGIENE & HEALTH CARE - NSI)
+Found: PGHL.BO (PROCTER & GAMBLE HEALTH LIMITE - BSE)
+Found: PGCL.SN (PROCTER & GAMBLE CO - SGO)

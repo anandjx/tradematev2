@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======================================================
+   Global Base
+====================================================== */
+body {
+  @apply antialiased;
+  background: radial-gradient(1200px 600px at 20% -10%,
+      #06143b,
+      transparent),
+    radial-gradient(1000px 500px at 90% 10%,
+      #c8d7d7,
+      transparent),
+    linear-gradient(to bottom, #f8fafc00, #eef2f7);
+  color: #192131;
+}
+
+
+/* ======================================================
+   Glassmorphism (TradeMate Signature)
+====================================================== */
+.glass {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+}
+
+/* ======================================================
+   Particle Background
+====================================================== */
+.particles::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.15), transparent),
+    radial-gradient(2px 2px at 80% 20%, rgba(255, 255, 255, 0.12), transparent),
+    radial-gradient(1.5px 1.5px at 50% 70%, rgba(255, 255, 255, 0.1), transparent);
+  animation: float 22s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-200px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+.shadow-glow {
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.25);
+}
+
+/* ======================================================
+   CopilotKit Sidebar Glassmorphism
+====================================================== */
+
+/* Main sidebar container */
+[data-copilotkit-sidebar],
+.copilotkit-sidebar-container,
+[class*="copilotkit"] {
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  background: rgba(255, 255, 255, 0.103) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.068) !important;
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Sidebar header */
+[data-copilotkit-sidebar] header,
+.copilotkit-sidebar-container header {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Chat messages area */
+[data-copilotkit-sidebar] [class*="messages"],
+.copilotkit-sidebar-container [class*="messages"] {
+  background: transparent !important;
+}
+
+/* Input area at bottom */
+[data-copilotkit-sidebar] [class*="input"],
+[data-copilotkit-sidebar] textarea,
+.copilotkit-sidebar-container [class*="input"],
+.copilotkit-sidebar-container textarea {
+  background: rgba(255, 255, 255, 0.6) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+}
+
+/* Message bubbles */
+[data-copilotkit-sidebar] [class*="message"],
+.copilotkit-sidebar-container [class*="message"] {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-radius: 12px !important;
+}
+
+/* Floating chat button */
+[data-copilotkit-floating-button],
+[class*="copilotkit"][class*="button"] {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  background: rgba(6, 20, 59, 0.9) !important;
+  box-shadow: 0 4px 20px rgba(6, 20, 59, 0.3) !important;
+}
+
+/* ======================================================
+   Custom Scrollbar (Market Analysis Card)
+====================================================== */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 999px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}

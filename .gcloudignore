@@ -1,0 +1,72 @@
+.gcloudignore
+.git
+.gitignore
+
+# ===== Windows OS files =====
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+.mypy_cache/
+
+# ===== Node / JavaScript =====
+node_modules/
+dist/
+build/
+.next/
+out/
+yarn-error.log
+package-lock.json
+
+# ===== Environment files =====
+.env
+.env.*
+!.env.example
+
+# ===== IDEs =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== OS X =====
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ===== Project Specific =====
+artifacts/
+temp/
+tmp/
+*.html
+
+# ===== Dev Scripts (Ignored) =====
+debug_*.py
+test_*.py
+preview_*.py
+verify_*.py
+stock_manual_analysis.py
+*.spec.py
