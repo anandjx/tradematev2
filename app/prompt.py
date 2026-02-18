@@ -104,7 +104,8 @@ Once a Ticker is confirmed (e.g. `RELINFRA.NS`, `LEON.SW`), execute these **4 PH
 *   **Step 5 (Strategic Blueprint)**:
     1.  Call `consult_on_strategy`.
         *   `quant_synthesis`: Full text from Step 4.
-    2.  **Status**: Blueprint generated. -> **IMMEDIATELY EXECUTE STEP 6.** 
+    2.  **FAILURE CHECK**: If the tool returns an error (e.g. "Rate limit", "Failed"), **RETRY** the call immediately once.
+    3.  **Status**: Blueprint generated. -> **IMMEDIATELY EXECUTE STEP 6.** 
     (Call `generate_equity_report_func` now.)
 
 #### **PHASE 4: Final Deliverables**
