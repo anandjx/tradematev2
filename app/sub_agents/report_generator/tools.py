@@ -990,7 +990,7 @@ def _build_report_html(d: dict) -> str:
             interp = f'''<div class="interp">
                 Median forecast {_price(orc_target, ticker)} vs current {_price(price, ticker)} → {d.get("asym_label", "balanced")}. Vol regime: {vol or "Normal"}.
             </div>'''
-        dist_card = f'''<div class="gc gc-t" style="padding:1.3rem;">
+        dist_card = f'''<div class="gc gc-p" style="padding:1.3rem;">
             <h4 style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#64748b;margin-bottom:.8rem;">Distribution Analysis</h4>
             <div class="pb">{cells_html}</div>
             {interp}

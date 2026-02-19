@@ -41,7 +41,7 @@ class AgentConfiguration:
     """Main configuration for your agent."""
 
     # The AI model to use (you can change this if needed)
-    model: str = os.environ.get("MODEL", "gemini-2.0-flash")
+    model: str = os.environ.get("MODEL", "gemini-2.5-flash")
 
     # Deployment name (can have hyphens, used for display in Agent Engine)
     deployment_name: str = os.environ.get("AGENT_NAME", "trademate")

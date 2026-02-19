@@ -5,7 +5,10 @@ from google.adk.tools import FunctionTool
 from . import prompt
 from . import tools
 
-MODEL = "gemini-2.0-flash-001"
+MODEL0 = "gemini-2.0-flash-001"
+MODEL = "gemini-2.5-flash"
+MODEL1PRO = "gemini-3-pro-preview"
+MODEL1FLASH = "gemini-3-flash-preview"
 
 oracle_predictor_agent = LlmAgent(
     model=MODEL,

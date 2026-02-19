@@ -66,6 +66,7 @@ Return a well-structured Markdown string.
 
 **1. Executive Summary:**
 *   (3-5 bullet points) Critical findings and overall outlook based *only* on data.
+*   Also add a snapshot of the company's history, the products and/or services it offers, the type of business model, estimated market share, and recent developments related to the corporation. This section can be short and consolidated.
 
 **2. Recent SEC Filings & Regulatory Information:**
 *   Summary of key filings (8-K, 10-Q/K, Form 4).
