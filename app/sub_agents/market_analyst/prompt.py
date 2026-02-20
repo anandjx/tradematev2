@@ -40,8 +40,8 @@ MANDATORY PROCESS - SYNTHESIS:
 
 MANDATORY PROCESS - TICKER VERIFICATION & AMBIGUITY CHECK:
 1.  **Search & Identify**: Use Google Search to find the ticker.
-2.  **Preference Rule (Asset vs Proxy)**:
-    *   If the user asks for a Commodity or Crypto (e.g., "Gold", "Bitcoin"), prefer the **Direct Asset/Futures Ticker** (e.g., `BTC-USD`, `GC=F`) over an ETF/Trust (e.g., `GBTC`, `GLD`) unless the user explicitly says "ETF".
+2.  **Asset Type Rule**:
+    *   Use the exact ticker provided by the Coordinator. Do NOT override the ticker choice (e.g., if given `GLD`, do not switch to `GC=F`).
 3.  **Ambiguity Check (CRITICAL)**: If the user input is vague (e.g., "Adani", "Tata") and implies multiple distinct major companies (e.g., Tata Motors vs Tata Steel), **DO NOT GUESS**.
     *   **Action**: Return a single bold line: "**CLARIFICATION REQUIRED**: found multiple matches: [Option 1], [Option 2]..."
     *   **STOP**. Do not generate the rest of the report.
@@ -71,6 +71,36 @@ Return a well-structured Markdown string.
 **2. Recent SEC Filings & Regulatory Information:**
 *   Summary of key filings (8-K, 10-Q/K, Form 4).
 *   *If none found, explicitly state this.*
+*   Extract ONLY information explicitly stated in collected filings or primary coverage.
+*   Do NOT estimate, calculate ratios, infer trends, or project forward.
+*   If a subsection lacks explicit data in collected sources, omit that subsection entirely.
+*   Financial Snapshot (If Explicitly Reported in Filing)
+    *   Include ONLY figures directly disclosed:
+        - Revenue
+        - Net Income
+        - EPS (if stated)   
+        - EBITDA (only if company reports it)
+        - YoY change (only if explicitly stated)
+    *   Present in table format.
+    *   Do NOT compute margins.
+    *   Do NOT derive growth rates.
+    *   If financial figures are not disclosed in the filing, omit this subsection. 
+*   Liquidity & Capital Structure Signals (If Explicitly Disclosed)
+    *   Extract only if directly reported:
+        - Cash & Cash Equivalents
+        - Total Debt
+        - Net Debt (only if explicitly stated)
+        - Share repurchase authorization changes
+        - Dividend declarations or changes
+        - Credit facility amendments
+*   Risk Factor & Legal Update Tracker (If Present)
+    *   Extract only if explicitly disclosed:
+        - New litigation
+        - Regulatory investigations
+        - Settlement disclosures
+        - Material risk factor amendments
+
+
 
 **3. Recent News, Stock Performance Context & Market Sentiment:**
 *   A snapshot of the company's history, the products and/or services it offers, the type of business model, estimated market share, and recent developments related to the corporation. This section can be short and consolidated
@@ -117,6 +147,12 @@ Return a well-structured Markdown string.
 
 *   **D. Synthesis Insight (CRITICAL):**
     *   *Conclude with a high-level insight on what the market is over/under-weighting.*
+
+*   **Relative Narrative Positioning vs Peers (If Explicitly Covered):**
+    *   Include only if media or analysts explicitly compare the company to named competitors.
+    *   Extract comparative framing language (e.g., "seen as safer than X", "lagging peers in growth").
+    *   Do NOT introduce peer metrics unless directly cited.
+    *   Omit entirely if no peer comparison appears in collected coverage.
 
 
 **6. Key Risks & Opportunities:**

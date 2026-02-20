@@ -86,7 +86,7 @@ export function inferCurrencyFromTicker(ticker?: string): string {
     const t = ticker.toUpperCase();
 
     // Try longest suffix first (.TWO = 4 chars), then shorter ones
-    for (const len of [4, 3, 2]) {
+    for (const len of [4, 3, 2, 1]) {
         const dot = t.lastIndexOf(".");
         if (dot !== -1) {
             const suffix = t.substring(dot);

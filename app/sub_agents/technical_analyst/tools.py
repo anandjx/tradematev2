@@ -378,8 +378,9 @@ def get_price_timeseries_snapshot(ticker: str, timeframe: str) -> dict:
             return {"error": f"No data returned for {key[0]} ({key[1]}). Tried: {', '.join(suffixes_to_try)}"}
 
         # Now resolve currency + market_cap using the working ticker
+        live_price = None  # will be set from fast_info if available
         if resolved_ticker in _mcap_cache and (now - _mcap_cache[resolved_ticker][0]) < _SNAPSHOT_TTL:
-            _, market_cap, currency = _mcap_cache[resolved_ticker]
+            _, market_cap, currency, live_price = _mcap_cache[resolved_ticker]
         else:
             try:
                 info = yf.Ticker(resolved_ticker).fast_info
@@ -387,9 +388,11 @@ def get_price_timeseries_snapshot(ticker: str, timeframe: str) -> dict:
                 market_cap = getattr(info, "market_cap", None)
                 if market_cap is not None:
                     market_cap = float(market_cap)
-                _mcap_cache[resolved_ticker] = (now, market_cap, currency)
+                _lp = getattr(info, "last_price", None)
+                live_price = round(float(_lp), 4) if _lp else None
+                _mcap_cache[resolved_ticker] = (now, market_cap, currency, live_price)
             except Exception:
-                _mcap_cache[resolved_ticker] = (now, None, "USD")
+                _mcap_cache[resolved_ticker] = (now, None, "USD", None)
 
         # Drop NaN rows and sort chronologically
         df = df.dropna(subset=["Close"]).sort_index()
@@ -399,7 +402,7 @@ def get_price_timeseries_snapshot(ticker: str, timeframe: str) -> dict:
             t.isoformat() if hasattr(t, "isoformat") else str(t) for t in df.index
         ]
 
-        current_price = round(float(closes[-1]), 4)
+        current_price = live_price if live_price is not None else round(float(closes[-1]), 4)
         open_price = float(closes[0])
         change = round(current_price - open_price, 4)
         change_pct = round((change / open_price) * 100, 2) if open_price != 0 else 0.0

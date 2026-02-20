@@ -89,13 +89,15 @@ export default function Home() {
 
 👋 Welcome to **TradeMate**
 
-Enter a **stock, crypto, ETF or commodity** to begin.
+Enter a **stock, crypto, ETF, commodity or futures** to begin.
 You can use either the **ticker** or the **asset name**.
 
 **Examples:**    
 • AAPL or Apple  
 • NVDA or NVIDIA  
-• TCS or Tata Consultancy Services(India)    
+• PRG.DE or Procter & Gamble **Germany**  
+• TCS or Tata Consultancy Services   
+• 7203.T or Toyota Motor **Japan**    
 • BTC-USD or Bitcoin  
 • SPY (ETF)  
 • GOLD or XAUUSD  
@@ -105,7 +107,7 @@ I’ll guide you through a structured analysis covering:
 **📊 Market Analysis** – sentiment and fundamental context.  
 **📈 Technical Indicators** – price structure, momentum, and volatility.  
 **🔮 Price Forecasts** – probabilistic path and uncertainty using SOTA Transformer model.  
-**♟️ Strategy Blueprint** – conditional frameworks, with a **download option of the report**.
+**♟️ Strategy Blueprint** – conditional frameworks, with an option to **download the full report**.
 
 **⚠️ IMPORTANT**: Once your query is confirmed, you can close this sidebar using the **X** button (top-right) to instantly view the full-screen interactive report updating live.  
 

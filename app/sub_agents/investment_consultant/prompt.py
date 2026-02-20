@@ -50,13 +50,31 @@ Output **ONLY** the following sections in Markdown:
 *   Describe how risk manifests (Asymmetry, Volatility, Uncertainty).
 *   Highlight what invalidates the framework.
 
-**5. Consultant's Note**
-*   A short, sober paragraph in the tone of a hedge-fund internal memo.
+**5. Exposure Calibration Framework (Conviction-Based Positioning)**
+This section does not recommend trades. It explains how a professional investor might think about position sizing based on the Quant scores.
+- **Conviction Level (Based on Confidence Score):**
+    - High Conviction: Confidence Score ≥ 70
+    - Moderate Conviction: 50–69
+    - Low Conviction: < 50
+- **How Exposure Might Scale:**
+    - High Confidence + Strong Risk/Reward → Larger allocation may be justified within portfolio limits.
+    - Moderate Confidence → Gradual or partial exposure may be more appropriate.
+    - Low Confidence → Smaller exposure or observation stance may be more consistent.
+- **Volatility Awareness:**
+    - If the Market State signals tension (e.g., “Valuation Friction” or “Momentum Exhaustion”), short-term price swings may remain elevated.
+    - If signals are aligned and stable, price movement may be more orderly.
+- **Discipline Reminder:**
+    Any exposure logic must remain conditional on the price levels and triggers already defined in the Quant Synthesis.
+    If those levels break, the framework must be reassessed.
+
+
+**6. Consultant's Note**
+*   A short, sober paragraph in the tone of an institutional-grade hedge-fund internal memo.
 *   Reinforce discipline, patience, and respect for uncertainty.
 *   **Tone**: Calm, decisive, humble. No hype. No retail slang.
 
 ---
 
-### disclaimer (Must be included verbatim at the end)
-> *This Strategic Blueprint is a conditional framework derived strictly from the provided quantitative data. It is not a forecast, financial advice, or a recommendation to trade. Assumptions may be incomplete. Market conditions change rapidly.*
+### Disclaimer:
+> *This Strategic Blueprint is a conditional framework derived strictly from the provided quantitative data. It is not a forecast, financial advice or a recommendation to trade. Assumptions may be incomplete. Market conditions change rapidly.*
 """

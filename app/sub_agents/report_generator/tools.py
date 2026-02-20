@@ -1091,10 +1091,6 @@ def generate_equity_report_func(ticker: str, tool_context: ToolContext) -> str:
     """
     tool_context.state["pipeline_stage"] = "report_generation"
     tool_context.state["target_ticker"] = ticker
-    stages = tool_context.state.get("stages_completed", [])
-    if "report_generation" not in stages:
-        stages.append("report_generation")
-    tool_context.state["stages_completed"] = stages
 
     try:
         if "strategic_report" not in tool_context.state:
@@ -1108,6 +1104,14 @@ def generate_equity_report_func(ticker: str, tool_context: ToolContext) -> str:
         html_code = _build_report_html(payload)
 
         tool_context.state["equity_report_html"] = html_code
+
+        # ── Advance pipeline to final "Report Ready" state ──
+        tool_context.state["pipeline_stage"] = "presentation"
+        done = tool_context.state.get("stages_completed", [])
+        for s in ["report_generation", "presentation"]:
+            if s not in done:
+                done.append(s)
+        tool_context.state["stages_completed"] = done
 
         print(f"DEBUG: Equity report generated ({len(html_code)} chars)")
 
