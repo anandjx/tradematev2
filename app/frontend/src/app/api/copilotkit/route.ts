@@ -1,10 +1,10 @@
 import { NextRequest } from "next/server";
 import {
     CopilotRuntime,
-    EmptyAdapter, // Renamed from ExperimentalEmptyAdapter in v1.50+
+    EmptyAdapter,
     copilotRuntimeNextJSAppRouterEndpoint,
 } from "@copilotkit/runtime";
-import { LangGraphAgent } from "@copilotkit/runtime/langgraph"; // Updated to LangGraphAgent
+import { LangGraphAgent } from "@copilotkit/runtime/langgraph";
 
 export const runtime = "nodejs";
 
@@ -13,14 +13,12 @@ const serviceAdapter = new EmptyAdapter();
 
 // 2. Define the Runtime and register your Remote Agent
 const runtimeInstance = new CopilotRuntime({
-    // We cast to 'any' to bypass a known TS bug in CopilotKit v1.51.x 
-    // where it expects an impossible PromiseLike & Record intersection.
     agents: {
         trademate: new LangGraphAgent({
-            name: "trademate",
+            // "trademate" must match the app_name="trademate" in your main.py
             url: process.env.REMOTE_ACTION_URL || "http://localhost:8000",
         }),
-    } as any,
+    } as any, // Bypasses the CopilotKit v1.51.x PromiseLike TS intersection bug
 });
 
 export const POST = async (req: NextRequest) => {
@@ -32,7 +30,6 @@ export const POST = async (req: NextRequest) => {
 
     return handleRequest(req);
 };
-
 
 
 
